@@ -10,8 +10,9 @@ import java.util.List;
 
 public class Main {
 	public static void main(String[] args) {
-		String path = "C:\\temp\\arq\\products.csv";
-		generateProductSumaryFile(getProductsCsvFile(path), generateOutDir(path));
+		File path = new File("C:\\temp\\arq\\products.csv");
+		generateProductSumaryFile(getProductsCsvFile(path.getPath()), 
+				generateOutDir(path.getParent()));
 		
 	}
 
@@ -35,7 +36,7 @@ public class Main {
 	private static void generateProductSumaryFile(List<Product> products, String path) {
 		String summaryFile = "summary.csv";
 		
-		try(PrintWriter pw = new PrintWriter(new FileWriter(path + "\\" + summaryFile))) {
+		try(PrintWriter pw = new PrintWriter(new FileWriter(path + summaryFile))) {
 			for (Product product : products) {
 				String name = product.getName();
 				Double totalValue = (product.getPrice() * product.getAmount());
@@ -48,7 +49,7 @@ public class Main {
 	}
 	
 	private static String generateOutDir(String path) {
-		String pathOutDir = path.replace(new File(path).getName(), "") + "\\out";	
+		String pathOutDir = path + "\\out\\";	
 		return new File(pathOutDir).mkdir() ? pathOutDir : null;
 	}
 }
