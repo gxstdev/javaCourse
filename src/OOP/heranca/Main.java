@@ -12,6 +12,8 @@ public class Main {
 
         NotaFiscalTransferencia nf2 = new NotaFiscalTransferencia(2L, LocalDateTime.now().minusDays(5L), BigDecimal.valueOf(1500L),
                 500L, 600L);
-        nf2 = (NotaFiscalTransferencia) nf1;
+
+        //DONWCASTING
+        NotaFiscalCompra nf3 = (NotaFiscalCompra) nf1;
     }
 }
