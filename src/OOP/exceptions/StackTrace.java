@@ -14,7 +14,7 @@ public class StackTrace {
             metodo2();
         } catch (Exception e) {
             System.out.println("Catch do metodo1");
-            e.printStackTrace();
+             e.printStackTrace();
             throw e; // relança
         }
     }
@@ -39,7 +39,7 @@ public class StackTrace {
         } catch (Exception e) {
             System.out.println("Catch do metodo3");
             e.printStackTrace();
-            throw e; // relança
+            //throw e; // relança
         }
     }
 
